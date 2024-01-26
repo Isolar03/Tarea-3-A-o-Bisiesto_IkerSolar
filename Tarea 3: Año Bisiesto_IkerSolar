@@ -1,0 +1,23 @@
+año_input = input("Ingrese un año entre 1900 y 2199: ")
+
+if año_input.isdigit():
+    año = int(año_input)
+
+    if 1900 <= año <= 2199:
+        # Verificar si el año es bisiesto
+        if (año % 4 == 0 and año % 100 != 0) or (año % 400 == 0):
+            print(f"{año} es un año bisiesto.")
+        else:
+            print(f"{año} no es un año bisiesto.")
+
+        # Calcular el número de años bisiestos hasta el año ingresado
+        años_bisiestos = 0
+        for y in range(1900, año + 1):
+            if (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0):
+                años_bisiestos += 1
+
+        print(f"El número de años bisiestos hasta {año} es {años_bisiestos}.")
+    else:
+        print("El año ingresado está fuera del rango permitido.")
+else:
+    print("Error: Ingrese un año válido.")
